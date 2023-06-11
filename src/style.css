@@ -88,8 +88,8 @@ body {
 }
 
 .cell:hover {
-	background-color: rgba(256,256,256,0.5);
 	transition: 0.5s;
+	border-radius: 1vmin;
 }
 
 .color-picker {

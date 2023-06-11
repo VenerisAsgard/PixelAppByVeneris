@@ -11,10 +11,6 @@ fn app_should_close() {
 
 #[tauri::command]
 fn save_image(colors: Vec<Vec<u8>>) {
-    //use std::path::PathBuf;
-    use tauri::api::dialog::blocking::FileDialogBuilder; // Note the updated import
-
-    let dialog_result = FileDialogBuilder::new().pick_folder();
     
     let width = 25;
     let height = 25;

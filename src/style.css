@@ -1,0 +1,122 @@
+@font-face {
+    font-family: Alkalami;
+    src: url(Alkalami.ttf);
+}
+
+@font-face {
+    font-family: days2;
+    src: url(days2.ttf);
+}
+
+.preloader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #333;
+	z-index: 2;
+	transition: 1s all;
+	opacity: 1;
+	visibility: visible;
+}
+
+.preloader.done {
+	opacity: 0;
+	visibility: hidden;
+	z-index: -1;
+}
+
+.loader {
+	  width: 75px;
+    height: 75px;
+    border: 10px solid transparent;
+    border-radius: 50%;
+    border-top-color: silver;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: 2s spin infinite linear;
+}
+
+
+
+@keyframes spin {
+	from {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	to {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: days2, Alkalami, sans-serif;;
+	color: silver;
+	cursor: default;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none; 
+}
+
+
+
+body {
+	background-color: #333;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	height: 100hv;
+	flex-direction: column;
+	gap: 2vmin;
+}
+
+.paint-board {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(25, 3vmin);
+	grid-template-rows: repeat(25, 3vmin);
+	border-radius: 1vmin;
+}
+
+.cell {
+	background-color: rgb(68, 68, 68);
+}
+
+.cell:hover {
+	background-color: rgba(256,256,256,0.5);
+	transition: 0.5s;
+}
+
+.color-picker {
+	flex-direction: row;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3vmin;
+    
+}
+
+.color-picker > h2 {
+	font-size: 3vmin;
+	height: 3vmin;
+	line-height: 3vmin;
+}
+
+.color-picker > input {
+  height: 3vmin;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 3vmin;
+}
+li {
+    display: inline-block;
+}
+

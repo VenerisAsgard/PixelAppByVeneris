@@ -3,6 +3,7 @@ extern crate image;
 use std::fs::File;
 use image::imageops::FilterType;
 use image::ImageFormat;
+use rand::Rng;
 
 #[tauri::command]
 fn app_should_close() {
@@ -10,13 +11,12 @@ fn app_should_close() {
 }
 
 #[tauri::command]
-fn save_image(colors: Vec<Vec<u8>>, text: &str) {
+fn save_image(colors: Vec<Vec<u8>>) {
     
     let width = 25;
     let height = 25;
     let mut counter = 0;
-    
-    
+    let name = format!("img{}.png", name, rand::thread_rng().gen_range(1..=99999999999999));
     
     let mut imgbuf = image::ImageBuffer::new(width, height);
 
@@ -26,13 +26,13 @@ fn save_image(colors: Vec<Vec<u8>>, text: &str) {
         *pixel = image::Rgb([rgb[0], rgb[1], rgb[2]]);
     }
     
-    imgbuf.save(format!("{}.png", text)).unwrap();
+    imgbuf.save(n).unwrap();
     
     
-    let tiny = image::open(format!("{}.png", text)).unwrap();
-    for &(_name, filter) in [("big", FilterType::Nearest)].iter(){
+    let tiny = image::open("small.png").unwrap();
+    for &(name, filter) in [("big", FilterType::Nearest)].iter(){
         let scaled = tiny.resize(2500, 2500, filter);
-        let mut output = File::create(&format!("{}.png", text)).unwrap();
+        let mut output = File::create(&format!("{}.png", name)).unwrap();
         scaled.write_to(&mut output, ImageFormat::Png).unwrap();
     }
 }

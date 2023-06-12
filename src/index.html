@@ -5,6 +5,7 @@
   <meta charset="UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="./style.css">
 	<script defer src="preloader.js" type="text/javascript"></script>
+	<!--<script defer src="drug.js" type="text/javascript"></script>-->
 	<script defer src="tauri.js" type="text/javascript"></script>
 	<script defer src="app.js" type="text/javascript"></script>
 </head>
@@ -13,14 +14,25 @@
 <div id="page-preloader" class="preloader">
 	<div class="loader"></div>
 </div>
-
+  
+<!--<div id="mydiv">
+  <div id="mydivheader">Зажмите здесь чтобы</div>
+  <p>Двигать</p>
+  <p>этот</p>
+  <p>DIV</p>
+</div>
+-->
+    
 	<ul>
 	<li>PixelAppByVeneris</li>
+	<li onclick="clear_image()">🗑️</li>
+	<li onclick="fill_image();">🎲</li>
+	<li onclick="save_image();">💾</li>
 	<li onclick="invoke('app_should_close')">❌</li>
 	</ul>
 
 
- <div class="color-picker"><h2>Выберите цвет:</h2><input type="color" id="user_color" value="#686868"></div>
+ <div class="color-picker"><h2>Выберите цвет:</h2><input type="color" id="user_color" value="#ffffff"></div>
 
   <div class="game"><div class="paint-board"></div></div>
 
